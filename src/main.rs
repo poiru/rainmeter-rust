@@ -4,11 +4,9 @@
 // file may not be copied, modified, or distributed except according to those
 // terms.
 
-use measure::Measure;
+use measure::Measureable;
 
 mod measure;
 
 fn main() {
-    let measure = Measure::new("foo");
-    println!("{}", measure.name());
 }
