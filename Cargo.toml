@@ -3,3 +3,6 @@
 name = "rainmeter-rust"
 version = "0.0.1"
 authors = ["Birunthan Mohanathas <birunthan@mohanathas.com>"]
+
+[dependencies]
+time = "*"
