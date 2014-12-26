@@ -6,14 +6,16 @@
 
 pub struct Measure {
     name: String,
-    value: f32,
+    number_value: f32,
+    string_value: String,
 }
 
 impl Measure {
     pub fn new(name: &str) -> Measure {
         Measure {
             name: name.to_string(),
-            value: 0.0f32,
+            number_value: 0.0f32,
+            string_value: "".to_string(),
         }
     }
 
@@ -21,11 +23,11 @@ impl Measure {
         self.name.as_slice()
     }
 
-    pub fn value(&self) -> f32 {
-        self.value
+    pub fn number_value(&self) -> f32 {
+        self.number_value
     }
 
-    pub fn update_value(&mut self) {
-        self.value += 1.0f32
+    pub fn string_value(&self) -> &str {
+        self.string_value.as_slice()
     }
 }
