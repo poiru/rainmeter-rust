@@ -4,6 +4,8 @@
 // file may not be copied, modified, or distributed except according to those
 // terms.
 
+#![allow(dead_code)]
+
 mod measure;
 mod skin;
 mod time_measure;
