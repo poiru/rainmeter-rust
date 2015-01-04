@@ -6,6 +6,7 @@
 
 pub trait Measureable<'a> {
     fn name(&'a self) -> &'a str;
+    fn update(&'a mut self);
     fn number_value(&'a self) -> f32;
     fn string_value(&'a self) -> String;
 }
