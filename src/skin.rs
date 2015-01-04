@@ -5,7 +5,6 @@
 // terms.
 
 use measure::Measureable;
-use time_measure::TimeMeasure;
 
 pub struct Skin<'a> {
     name: String,
@@ -23,4 +22,10 @@ impl<'a> Skin<'a> {
     pub fn name(&self) -> &str {
         self.name.as_slice()
     }
+}
+
+#[test]
+fn test_name() {
+    let skin = Skin::new("skin");
+    assert_eq!("skin", skin.name());
 }
