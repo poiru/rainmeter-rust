@@ -22,10 +22,27 @@ impl<'a> Skin<'a> {
     pub fn name(&self) -> &str {
         self.name.as_slice()
     }
+
+    pub fn add_measure(&mut self, measure: Box<Measureable<'a> + 'a>) {
+        self.measures.push(measure);
+    }
+
+    pub fn measures(&self) -> &Vec<Box<Measureable<'a> + 'a>> {
+        &self.measures
+    }
 }
 
 #[test]
 fn test_name() {
     let skin = Skin::new("skin");
     assert_eq!("skin", skin.name());
+}
+
+#[test]
+fn test_add_measure() {
+    use time_measure::TimeMeasure;
+
+    let mut skin = Skin::new("skin");
+    skin.add_measure(box TimeMeasure::new("foo"));
+    assert_eq!(1, skin.measures().len());
 }
