@@ -6,6 +6,10 @@
 
 #![allow(dead_code)]
 
+extern crate core;
+extern crate ini;
+
+mod config;
 mod measure;
 mod skin;
 mod time_measure;
