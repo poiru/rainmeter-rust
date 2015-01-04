@@ -6,3 +6,6 @@ authors = ["Birunthan Mohanathas <birunthan@mohanathas.com>"]
 
 [dependencies]
 time = "*"
+
+[dependencies.rust-ini]
+git = "https://github.com/zonyitoo/rust-ini"
