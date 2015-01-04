@@ -18,7 +18,7 @@ impl Config {
         }
     }
 
-    pub fn read_str(&mut self, section: &str, key: &str) -> Option<String> {
+    pub fn get_str(&mut self, section: &str, key: &str) -> Option<String> {
         self.ini.begin_section(section);
         let value = match self.ini.get(key) {
             Some(v) => Some(String::from_str(v)),
@@ -28,7 +28,7 @@ impl Config {
         value
     }
 
-    pub fn read_i32(&mut self, section: &str, key: &str) -> Option<i32> {
+    pub fn get_i32(&mut self, section: &str, key: &str) -> Option<i32> {
         self.ini.begin_section(section);
         let value = match self.ini.get(key) {
             Some(v) => from_str_radix(v, 10),
@@ -38,7 +38,7 @@ impl Config {
         value
     }
 
-    pub fn read_u32(&mut self, section: &str, key: &str) -> Option<u32> {
+    pub fn get_u32(&mut self, section: &str, key: &str) -> Option<u32> {
         self.ini.begin_section(section);
         let value = match self.ini.get(key) {
             Some(v) => from_str_radix(v, 10),
@@ -48,7 +48,7 @@ impl Config {
         value
     }
 
-    pub fn read_f32(&mut self, section: &str, key: &str) -> Option<f32> {
+    pub fn get_f32(&mut self, section: &str, key: &str) -> Option<f32> {
         self.ini.begin_section(section);
         let value = match self.ini.get(key) {
             Some(v) => from_str_radix(v, 10),
@@ -60,13 +60,13 @@ impl Config {
 }
 
 #[test]
-fn test_read() {
+fn test_get() {
     let mut conf = Config::load_from_str(
         "[s]
          i32=-123
          u32=-123
          f32=1.23");
-    assert_eq!(-123i32, conf.read_i32("s", "i32").unwrap());
-    assert!(conf.read_u32("s", "u32").is_none());
-    assert_eq!(1.23f32, conf.read_f32("s", "f32").unwrap());
+    assert_eq!(-123i32, conf.get_i32("s", "i32").unwrap());
+    assert!(conf.get_u32("s", "u32").is_none());
+    assert_eq!(1.23f32, conf.get_f32("s", "f32").unwrap());
 }
