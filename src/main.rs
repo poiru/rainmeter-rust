@@ -5,8 +5,9 @@
 // terms.
 
 #![allow(dead_code)]
+#![feature(core)]
+#![feature(collections)]
 
-extern crate core;
 extern crate ini;
 
 mod config;
