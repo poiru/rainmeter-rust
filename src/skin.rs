@@ -43,6 +43,6 @@ fn test_add_measure() {
     use time_measure::TimeMeasure;
 
     let mut skin = Skin::new("skin");
-    skin.add_measure(box TimeMeasure::new("foo"));
+    skin.add_measure(Box::new(TimeMeasure::new("foo")));
     assert_eq!(1, skin.measures().len());
 }

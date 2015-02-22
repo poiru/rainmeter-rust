@@ -31,7 +31,7 @@ impl Config {
     pub fn get_i32(&mut self, section: &str, key: &str) -> Option<i32> {
         self.ini.begin_section(section);
         let value = match self.ini.get(key) {
-            Some(v) => from_str_radix(v, 10),
+            Some(v) => from_str_radix(v, 10).ok(),
             None => None,
         };
         self.ini.end_section();
@@ -41,7 +41,7 @@ impl Config {
     pub fn get_u32(&mut self, section: &str, key: &str) -> Option<u32> {
         self.ini.begin_section(section);
         let value = match self.ini.get(key) {
-            Some(v) => from_str_radix(v, 10),
+            Some(v) => from_str_radix(v, 10).ok(),
             None => None,
         };
         self.ini.end_section();
@@ -51,7 +51,7 @@ impl Config {
     pub fn get_f32(&mut self, section: &str, key: &str) -> Option<f32> {
         self.ini.begin_section(section);
         let value = match self.ini.get(key) {
-            Some(v) => from_str_radix(v, 10),
+            Some(v) => from_str_radix(v, 10).ok(),
             None => None,
         };
         self.ini.end_section();
